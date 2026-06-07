@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#cc0000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>Pokémon Safari</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- ======================= ANA MENÜ ======================= -->
+    <section id="screen-menu" class="screen active">
+      <div class="logo">
+        <span class="logo-poke">Pokémon</span>
+        <span class="logo-safari">SAFARİ</span>
+      </div>
+      <div class="poke-spin">
+        <img id="menu-sprite" alt="Pokémon" />
+      </div>
+      <div class="menu-buttons">
+        <button class="btn btn-primary" data-goto="catch">🎯 Yakalamaya Başla</button>
+        <button class="btn btn-secondary" data-goto="quiz">❓ Bu Hangi Pokémon?</button>
+        <button class="btn btn-secondary" data-goto="dex">📕 Pokédex</button>
+      </div>
+      <div class="menu-stats">
+        <span>🏆 Rekor: <b id="menu-highscore">0</b></span>
+        <span>📦 Yakalanan: <b id="menu-caught">0</b>/151</span>
+      </div>
+      <p class="credit">Veriler & görseller: PokéAPI (açık kaynak)</p>
+    </section>
+
+    <!-- ======================= YAKALAMA MODU ======================= -->
+    <section id="screen-catch" class="screen">
+      <header class="topbar">
+        <button class="back" data-goto="menu">‹</button>
+        <div class="hud">
+          <span>🏆 <b id="catch-score">0</b></span>
+          <span>🔥 <b id="catch-combo">0</b></span>
+          <span id="catch-balls">⚪⚪⚪</span>
+        </div>
+      </header>
+
+      <div class="arena">
+        <div id="catch-message" class="catch-message">Vahşi bir Pokémon belirdi!</div>
+        <div class="wild-wrap">
+          <img id="wild-sprite" class="wild-sprite" alt="Vahşi Pokémon" />
+          <div id="pokeball-fx" class="pokeball-fx"></div>
+        </div>
+        <div id="wild-name" class="wild-name">???</div>
+      </div>
+
+      <div class="catch-controls">
+        <div class="timing-bar">
+          <div class="timing-zone" id="timing-zone"></div>
+          <div class="timing-marker" id="timing-marker"></div>
+        </div>
+        <button id="throw-btn" class="btn btn-ball">⚾ Pokéball At!</button>
+        <p class="hint">Yeşil bölge üzerindeyken bas — ne kadar ortalarsan o kadar iyi!</p>
+      </div>
+    </section>
+
+    <!-- ======================= QUIZ MODU ======================= -->
+    <section id="screen-quiz" class="screen">
+      <header class="topbar">
+        <button class="back" data-goto="menu">‹</button>
+        <div class="hud">
+          <span>🏆 <b id="quiz-score">0</b></span>
+          <span>❤️ <span id="quiz-lives">●●●</span></span>
+        </div>
+      </header>
+
+      <div class="quiz-arena">
+        <p class="quiz-q">Bu hangi Pokémon?</p>
+        <div class="silhouette-wrap">
+          <img id="quiz-sprite" class="silhouette" alt="Silüet" />
+        </div>
+        <div id="quiz-options" class="quiz-options"></div>
+      </div>
+    </section>
+
+    <!-- ======================= POKÉDEX ======================= -->
+    <section id="screen-dex" class="screen">
+      <header class="topbar">
+        <button class="back" data-goto="menu">‹</button>
+        <div class="hud"><span>📦 <b id="dex-count">0</b>/151</span></div>
+      </header>
+      <div id="dex-grid" class="dex-grid"></div>
+    </section>
+
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
